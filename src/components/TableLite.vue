@@ -73,6 +73,7 @@
                       <input
                         type="checkbox"
                         class="vtl-tbody-checkbox"
+                        :disabled="isRowCheckable(row)"
                         :ref="
                           (el) => {
                             rowCheckbox[i] = el;
@@ -113,6 +114,7 @@
                       <input
                         type="checkbox"
                         class="vtl-tbody-checkbox"
+                        :disabled="isRowCheckable(row)"
                         :ref="
                           (el) => {
                             rowCheckbox[i] = el;
@@ -293,6 +295,11 @@ export default defineComponent({
     hasCheckbox: {
       type: Boolean,
       default: false,
+    },
+    // Is checkbox disabled
+    isRowCheckable: {
+          type: Function,
+          default: () => true
     },
     // Checkbox勾選後返回資料的型態 (Returns data type for checked of Checkbox)
     checkedReturnType: {
